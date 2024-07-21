@@ -1,14 +1,13 @@
 import os
 
-from cestus.core import CestusWriter, CestusReader
+from cestus.core import CestusReader, CestusWriter
 
-schema = {'a': int(), 'b': str(), 'c': float(), 'd': bool()}
-source_data = [[1, 'a', 0.0, True], [3, 'f', 1.0, False]]
-
+schema = {"a": 0, "b": "", "c": 0.0, "d": bool()}
+source_data = [[1, "a", 0.0, True], [3, "f", 1.0, False]]
 
 
 def test_write_read():
-    path = '/tmp/test_write.cestus'
+    path = "/tmp/test_write.cestus"
     CestusWriter(path).write(source_data, schema)
     cestus_data = CestusReader(path).read().select("*")
     transposed_cestus = [row for row in zip(*cestus_data)]
@@ -19,21 +18,24 @@ def test_write_read():
 
 
 def test_column_filter():
-    path = '/tmp/test_write.cestus'
+    path = "/tmp/test_write.cestus"
     CestusWriter(path).write(source_data, schema)
-    filtered = CestusReader(path).read(columns=['a', 'd'])
+    filtered = CestusReader(path).read(columns=["a", "d"])
     os.remove(path)
-    assert 'a' in filtered.columns and 'd' in filtered.columns and filtered.select(['a', 'd']) == [[1, 3],
-                                                                                                   [True, False]]
+    assert (
+        "a" in filtered.columns
+        and "d" in filtered.columns
+        and filtered.select(["a", "d"]) == [[1, 3], [True, False]]
+    )
 
 
 def test_stats_per_column():
-    path = '/tmp/test_write.cestus'
+    path = "/tmp/test_write.cestus"
     CestusWriter(path).write(source_data, schema)
     stats = CestusReader(path).read().stats
-    assert 'a' in stats
+    assert "a" in stats
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     test_column_filter()
     test_stats_per_column()

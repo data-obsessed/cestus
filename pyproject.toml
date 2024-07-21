@@ -1,18 +1,17 @@
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core"]
+
 [tool.poetry]
-name = "cestus"
-version = "0.1.0"
-description = ""
 authors = ["NikitaSharov"]
+description = ""
+name = "cestus"
 readme = "README.md"
+version = "0.1.0"
 
 [tool.poetry.dependencies]
-python = "3.12.3"
 blosc = "^1.11.2"
-pytest = "^8.3.1"
-orjson = "^3.10.6"
 numpy = "^2.0.1"
-
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+orjson = "^3.10.6"
+pytest = "^8.3.1"
+python = "3.12.3"

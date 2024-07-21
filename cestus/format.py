@@ -1,11 +1,10 @@
-from typing import List, Dict
+from typing import Dict, List
 
 
 class CestusEntity:
     def __init__(self, frame: Dict[str, List], stats: Dict[str, float]):
         self._stats = stats
         self._frame = frame
-
 
     @property
     def columns(self):
