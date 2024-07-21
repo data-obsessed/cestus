@@ -9,6 +9,7 @@ from cestus.format import CestusEntity
 _magic_number = b'CCF6'
 
 
+
 class CestusReader:
 
     def __init__(self, path: str):

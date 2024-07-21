@@ -6,6 +6,7 @@ class CestusEntity:
         self._stats = stats
         self._frame = frame
 
+
     @property
     def columns(self):
         return [str(k) for k in self._frame.keys()]
