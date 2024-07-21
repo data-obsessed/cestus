@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "cestus"
+version = "0.1.0"
+description = ""
+authors = ["NikitaSharov"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.12.3"
+blosc = "^1.11.2"
+pytest = "^8.3.1"
+orjson = "^3.10.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
